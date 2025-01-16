@@ -2,11 +2,13 @@
 
 class Persona{
 
-    private $nombre, $apellido, $edad;
+    protected string $nombre, $pApellido, $sApellido;
+    protected int $edad;
 
-    public function __construct(string $nombre, string $apellido, int $edad){
+    public function __construct(string $nombre, string $pApellido, string $sApellido ,int $edad){
         $this->nombre = ucwords(strtolower($nombre));
-        $this->apellido = ucwords(strtolower($apellido));
+        $this->pApellido = ucwords(strtolower($pApellido));
+        $this->sApellido = ucwords(strtolower($sApellido));
         $this->edad = $edad;
     }
 
@@ -18,12 +20,13 @@ class Persona{
         $this->nombre = ucwords(strtolower($nombre));
     }   
 
-    public function getApellido():string{
-        return $this->apellido;
+    public function getpApellidos():array{
+        return [$this->pApellido, $this->sApellido];
     }
-    
-    public function setApellido(string $apellido):void{
-        $this->apellido = ucwords(strtolower($apellido));
+
+    public function setApellidos(string $pApellido, string $sApellido):void{
+        $this->pApellido = ucwords(strtolower($pApellido));
+        $this->sApellido = ucwords(strtolower($sApellido));
     }
 
     public function getEdad():int{
